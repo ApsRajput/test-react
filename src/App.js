@@ -1,23 +1,18 @@
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import BlogPost from "./pages/BlogPost";
-import { React, useState } from "react";
+// App.js
 
-function App() {
-const [getBlogContent, setGetBlogContent] = useState([]);
-  const getData = (blog) => {
-    setGetBlogContent(blog);
-  }
-  return (
-    <div>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<HomePage data={getData}/>} />
-          <Route path="/blog/:id" element={<BlogPost content={getBlogContent}/>} />
-        </Routes>
-      </div>
-    </div>
-  );
-}
+import React from "react";
+import "./App.css";
+
+import Posts from "./components/Posts";
+import Navbar from "./components/BlogNav"
+
+const App = () => {
+	return (
+		<div className="main-container" style={{backgroundColor: "aliceblue"}}>
+			<Navbar />
+			<Posts />
+		</div>
+	);
+};
+
 export default App;
