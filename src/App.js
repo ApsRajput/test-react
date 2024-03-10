@@ -1,23 +1,21 @@
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import BlogPost from "./pages/BlogPost";
-import { React, useState } from "react";
+import React from "react";
+import './App.css';
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Navbar from "./components/Navbar";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Testimonials from "./components/Testimonials";
 
-function App() {
-const [getBlogContent, setGetBlogContent] = useState([]);
-  const getData = (blog) => {
-    setGetBlogContent(blog);
-  }
+export default function App() {
   return (
-    <div>
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<HomePage data={getData}/>} />
-          <Route path="/blog/:id" element={<BlogPost content={getBlogContent}/>} />
-        </Routes>
-      </div>
-    </div>
+    <main className="text-gray-400 bg-gray-900 body-font">
+      <Navbar />
+      <About />
+      <Projects />
+      <Skills />
+      <Testimonials />
+      <Contact />
+    </main>
   );
 }
-export default App;
